@@ -1,18 +1,8 @@
-//
-//  Configurable.swift
-//  MarkdownMadness
-//
-//  Created by Config Actor on 6/16/24.
-//
+import Foundation
 
-import SwiftUI
-
-struct Configurable: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    Configurable()
+protocol Configurable {
+    var enableSyntaxHighlighting: Bool { get set }
+    var enableImageRendering: Bool { get set }
+    var enableLinkHandling: Bool { get set }
+    func configureMarkdownOptions()
 }

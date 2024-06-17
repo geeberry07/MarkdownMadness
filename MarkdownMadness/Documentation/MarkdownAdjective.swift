@@ -8,7 +8,6 @@ struct MarkdownAdjective {
             .font(.body)
             .italic()
             .foregroundColor(.blue)
-            .padding(.bottom, 4)
             // Add more styling as needed
     }
 }

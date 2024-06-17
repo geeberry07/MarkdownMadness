@@ -1,18 +1,19 @@
-//
-//  MarkdownSentence.swift
-//  MarkdownMadness
-//
-//  Created by Config Actor on 6/17/24.
-//
-
 import SwiftUI
 
-struct MarkdownSentence: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct MarkdownSentence {
+    let text: String
+
+    func render() -> Text {
+        Text(text)
+            .font(.body)
+            .foregroundColor(.black)
     }
 }
 
-#Preview {
-    MarkdownSentence()
+struct MarkdownSentence_Previews: PreviewProvider {
+    static var previews: some View {
+        MarkdownSentence(text: "This is a *Markdown* sentence.")
+            .render()
+            .padding()
+    }
 }

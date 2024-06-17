@@ -1,18 +1,20 @@
-//
-//  MarkdownVerb.swift
-//  MarkdownMadness
-//
-//  Created by Config Actor on 6/17/24.
-//
-
 import SwiftUI
 
-struct MarkdownVerb: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct MarkdownVerb {
+    let text: String
+
+    func render() -> Text {
+        Text(text)
+            .font(.body)
+            .foregroundColor(.purple)
+            // Add more styling as needed
     }
 }
 
-#Preview {
-    MarkdownVerb()
+struct MarkdownVerb_Previews: PreviewProvider {
+    static var previews: some View {
+        MarkdownVerb(text: "running")
+            .render()
+            .padding()
+    }
 }

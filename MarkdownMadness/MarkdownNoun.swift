@@ -1,18 +1,21 @@
-//
-//  MarkdownNoun.swift
-//  MarkdownMadness
-//
-//  Created by Config Actor on 6/17/24.
-//
-
 import SwiftUI
 
-struct MarkdownNoun: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct MarkdownNoun {
+    let text: String
+
+    func render() -> Text {
+        Text(text)
+            .font(.headline)
+            .fontWeight(.bold)
+            .foregroundColor(.green)
+            // Add more styling as needed
     }
 }
 
-#Preview {
-    MarkdownNoun()
+struct MarkdownNoun_Previews: PreviewProvider {
+    static var previews: some View {
+        MarkdownNoun(text: "apple")
+            .render()
+            .padding()
+    }
 }

@@ -1,18 +1,24 @@
-//
-//  MarkdownParagraph.swift
-//  MarkdownMadness
-//
-//  Created by Config Actor on 6/16/24.
-//
-
 import SwiftUI
 
 struct MarkdownParagraph: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack(alignment: .leading, spacing: 16) {
+                MarkdownSentence(text: "This is a *Markdown* sentence.")
+                    .render()
+                
+                MarkdownSentence(text: "This is a *Markdown* sentence.")                    .render()
+                
+                MarkdownSentence(text: "This is a *Markdown* sentence.")                    .render()
+                
+                MarkdownSentence(text: "This is a *Markdown* sentence.")                    .render()
+            }
+            .padding()
+        }
     }
-}
 
-#Preview {
-    MarkdownParagraph()
+
+struct MarkdownParagraph_Previews: PreviewProvider {
+    static var previews: some View {
+        MarkdownParagraph()
+    }
 }

@@ -1,18 +1,10 @@
-//
-//  MarkdownStyleable.swift
-//  MarkdownMadness
-//
-//  Created by Config Actor on 6/16/24.
-//
+import Foundation
 
-import SwiftUI
-
-struct MarkdownStyleable: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    MarkdownStyleable()
+protocol Styleable {
+    var headingStyle: [NSAttributedString.Key: Any] { get set }
+    var bodyStyle: [NSAttributedString.Key: Any] { get set }
+    var codeStyle: [NSAttributedString.Key: Any] { get set }
+    var linkStyle: [NSAttributedString.Key: Any] { get set }
+    var listStyle: [NSAttributedString.Key: Any] { get set }
+    func applyStyles(to attributedString: NSAttributedString) -> NSAttributedString
 }

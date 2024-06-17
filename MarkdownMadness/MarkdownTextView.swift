@@ -1,18 +1,22 @@
-//
-//  MarkdownTextView.swift
-//  MarkdownMadness
-//
-//  Created by Config Actor on 6/16/24.
-//
-
 import SwiftUI
 
-struct MarkdownTextView: View {
+struct MarkdownTextView: View, Renderable {
+    var markdown: String
+    
+    func renderMarkdown() -> NSAttributedString {
+        // Implement Markdown rendering logic here
+        let attributedString = NSMutableAttributedString(string: markdown)
+        
+        // Apply styles, parse Markdown, etc.
+        // Example:
+        attributedString.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: attributedString.length))
+        
+        return attributedString
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(renderMarkdown().string)
+            .padding()
     }
 }
 
-#Preview {
-    MarkdownTextView()
-}

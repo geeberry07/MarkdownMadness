@@ -1,18 +1,36 @@
-//
-//  MarkdownHeaderRenderer.swift
-//  MarkdownMadness
-//
-//  Created by Config Actor on 6/16/24.
-//
-
 import SwiftUI
 
 struct MarkdownHeaderRenderer: View {
+    let text: String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if text.starts(with: "#") {
+            Text(text.drop(while: { $0 == "#" }).trimmingCharacters(in: .whitespaces))
+                .font(.largeTitle)
+                .bold()
+        } else if text.starts(with: "##") {
+            Text(text.drop(while: { $0 == "#" }).trimmingCharacters(in: .whitespaces))
+                .font(.title)
+                .bold()
+        } else if text.starts(with: "###") {
+            Text(text.drop(while: { $0 == "#" }).trimmingCharacters(in: .whitespaces))
+                .font(.headline)
+                .bold()
+        } else {
+            Text(text.trimmingCharacters(in: .whitespaces))
+                .font(.body)
+        }
     }
 }
 
-#Preview {
-    MarkdownHeaderRenderer()
+struct MarkdownHeaderRenderer_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack(spacing: 16) {
+            MarkdownHeaderRenderer(text: "# Main Header")
+            MarkdownHeaderRenderer(text: "## Subheader")
+            MarkdownHeaderRenderer(text: "### Sub-subheader")
+            MarkdownHeaderRenderer(text: "Regular text")
+        }
+        .padding()
+    }
 }
